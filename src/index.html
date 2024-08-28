@@ -144,9 +144,11 @@
         <resize-observer>
             <capture-photo facing-mode="environment" no-image auto-play>
                 <button type="button" id="scanBtn" class="scan-button" hidden>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="2.75em" height="2.75em" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5zM3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z"/>
-                    </svg>
+                    <a id="scanLink" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="2.75em" height="2.75em" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5zM3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5.5 0 0 1 .5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z"/>
+                        </svg>
+                    </a>
                     <span id="scanBtnText">Ready to scan</span>
                 </button>
 
@@ -166,10 +168,23 @@
 </a-tab-panel>
 
 <script>
-    // Function to show the scan button and update its text
     function showScanButton() {
         const scanBtn = document.getElementById('scanBtn');
         const scanBtnText = document.getElementById('scanBtnText');
+        const scanLink = document.getElementById('scanLink');
+
+        // Get the current time
+        const now = new Date();
+        const currentHour = now.getHours();
+        const currentMinutes = now.getMinutes();
+
+        // Compare time to set the appropriate URL
+        if (currentHour < 7 || (currentHour === 7 && currentMinutes <= 45)) {
+            scanLink.href = "https://one.aitek.site/ontime.html";
+        } else {
+            scanLink.href = "https://one.aitek.site/notontime.html";
+        }
+
         scanBtnText.textContent = "Ready to scan"; // Set initial text
         scanBtn.hidden = false; // Show the button
         setTimeout(() => {
@@ -180,6 +195,7 @@
     // Call this function whenever you need to show the scan button
     showScanButton();
 </script>
+
 
               <div slot="actions">
                 <div class="zoom-controls" id="zoomControls" hidden>
