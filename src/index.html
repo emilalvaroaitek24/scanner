@@ -139,27 +139,46 @@
         <span>Use webcam</span>
       </a-tab>
 
-      <a-tab-panel slot="panel" id="cameraPanel">
-        <div class="scan-frame-container">
-          <resize-observer>
+<a-tab-panel slot="panel" id="cameraPanel">
+    <div class="scan-frame-container">
+        <resize-observer>
             <capture-photo facing-mode="environment" no-image auto-play>
-              <button type="button" id="scanBtn" class="scan-button" hidden>
-                <svg xmlns="http://www.w3.org/2000/svg" width="2.75em" height="2.75em" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5zM3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z"/>
-                </svg>
-                <span>Click to scan another barcode or press the <kbd>Esc</kbd> key.</span>
-              </button>
+                <button type="button" id="scanBtn" class="scan-button" hidden>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2.75em" height="2.75em" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5zM3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z"/>
+                    </svg>
+                    <span>Click to scan another barcode.</span>
+                </button>
 
-              <span slot="capture-button" hidden></span>
+                <span slot="capture-button" hidden></span>
 
-              <span slot="facing-mode-button-content" title="Switch camera">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1.375em" height="1.375em">
-                  <path d="M350.54 148.68l-26.62-42.06C318.31 100.08 310.62 96 302 96h-92c-8.62 0-16.31 4.08-21.92 10.62l-26.62 42.06C155.85 155.23 148.62 160 140 160H80a32 32 0 00-32 32v192a32 32 0 0032 32h352a32 32 0 0032-32V192a32 32 0 00-32-32h-59c-8.65 0-16.85-4.77-22.46-11.32z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
-                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M124 158v-22h-24v22M335.76 285.22v-13.31a80 80 0 00-131-61.6M176 258.78v13.31a80 80 0 00130.73 61.8"/>
-                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M196 272l-20-20-20 20M356 272l-20 20-20-20"/>
-                </svg>
-                <span class="visually-hidden">Switch camera</span>
-              </span>
+                <span slot="facing-mode-button-content" title="Switch camera">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1.375em" height="1.375em">
+                        <path d="M350.54 148.68l-26.62-42.06C318.31 100.08 310.62 96 302 96h-92c-8.62 0-16.31 4.08-21.92 10.62l-26.62 42.06C155.85 155.23 148.62 160 140 160H80a32 32 0 00-32 32v192a32 32 0 0032 32h352a32 32 0 0032-32V192a32 32 0 00-32-32h-59c-8.65 0-16.85-4.77-22.46-11.32z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/>
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M124 158v-22h-24v22M335.76 285.22v-13.31a80 80 0 00-131-61.6M176 258.78v13.31a80 80 0 00130.73 61.8"/>
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M196 272l-20-20-20 20M356 272l-20 20-20-20"/>
+                    </svg>
+                    <span class="visually-hidden">Switch camera</span>
+                </span>
+            </capture-photo>
+        </resize-observer>
+    </div>
+</a-tab-panel>
+
+<script>
+    // Function to show the scan button and hide it after 3 seconds
+    function showScanButton() {
+        const scanBtn = document.getElementById('scanBtn');
+        scanBtn.hidden = false; // Show the button
+        setTimeout(() => {
+            scanBtn.hidden = true; // Hide the button after 3 seconds
+        }, 3000);
+    }
+
+    // Call this function whenever you need to show the scan button
+    showScanButton();
+</script>
+
 
               <div slot="actions">
                 <div class="zoom-controls" id="zoomControls" hidden>
